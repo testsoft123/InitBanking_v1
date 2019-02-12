@@ -1,0 +1,7 @@
+package com.initBanking.testCase;
+
+public class Tc_LoginTest_001 {
+
+	public String  StringbaseURL= "http://demo.guru99.com/v4/";
+		
+}

@@ -1,0 +1,32 @@
+package com.initBanking.testCase;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.initBanking.utilities.XLUtils;
+
+public class TC_LoginDDT_002 extends BaseClass {
+
+	
+	@Test
+	public void loginDDT(){
+		
+	}
+	@DataProvider(name="LoginData")
+	getData(){
+	
+		String path = System.getProperty("user.dir")+"src/test/java/com/initBanking/testData/LoginData.xlsx";
+		int rownum =XLUtils.getRowCount(path, "Login");
+		int colcount= XLUtils.getCellCount(path, "Login", 1);
+		
+		String logindata[][]= new String[rownum][colcount];
+		
+		for(int i=1;i<=rownum;i++){
+			for(int j=0;j<=colcount;j++){
+				logindata[i-1][j]=XLUtils.getCellData(path, "Login", i, j);//1 0
+				
+			}
+		}
+	}
+	
+}

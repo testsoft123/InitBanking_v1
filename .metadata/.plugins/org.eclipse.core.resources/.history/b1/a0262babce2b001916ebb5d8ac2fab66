@@ -1,0 +1,70 @@
+package com.initBanking.testCase;
+
+import java.io.IOException;
+
+import org.openqa.selenium.NoAlertPresentException;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.initBanking.pageObject.LoginPage;
+import com.initBanking.utilities.XLUtils;
+
+public class TC_LoginDDT_002 extends BaseClass {
+
+	
+	@Test(dataProvider="LoginData")
+	public void loginDDT(){
+		
+		logger.info("URL is opned");
+		LoginPage loginPage = new LoginPage(driver);
+		
+		loginPage.setUserName(username);
+		
+		logger.info("Username is Entered");
+		loginPage.setPassword(password);
+		
+		loginPage.clickSubmit();
+		
+		if(isAlertPresent()==true){
+			driver.switchTo().alert().accept();
+			driver.switchTo().defaultContent();
+			Assert.assertTrue(false);
+			logger.warn("Login test failed");
+		}else{
+			Assert.assertTrue(true);
+			loginPage.clickLogOutt();
+			driver.switchTo().alert().accept();
+			driver.switchTo().defaultContent();
+		}
+		
+	}
+	
+	public boolean isAlertPresent(){
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;// TODO: handle exception
+		}
+	}
+			
+	@DataProvider(name="LoginData")
+	String[][] getData() throws IOException{
+	
+		String path = System.getProperty("user.dir")+"src/test/java/com/initBanking/testData/LoginData.xlsx";
+		int rownum =XLUtils.getRowCount(path, "Login");
+		int colcount= XLUtils.getCellCount(path, "Login", 1);
+		
+		String logindata[][]= new String[rownum][colcount];
+		
+		for(int i=1;i<=rownum;i++){
+			for(int j=0;j<=colcount;j++){
+				logindata[i-1][j]=XLUtils.getCellData(path, "Login", i, j);//1 0
+				
+			}
+		}
+		return logindata;
+	}
+	
+}

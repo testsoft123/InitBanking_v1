@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="InitBankingV1">
+  <test name="BankingApp Test">
+  <parameter name="browserType" value="fireFox"/>
+    <classes>
+      <class name="com.initBanking.testCase.Tc_LoginTest_001"/>
+    </classes>
+  </test>
+  <test name="BankingApp Test">
+  <parameter name="browserType" value="chrome"/>
+    <classes>
+      <class name="com.initBanking.testCase.Tc_LoginTest_001"/>
+    </classes>
+  </test>
+  <test name="BankingApp Test">
+  <parameter name="browserType" value="IE"/>
+    <classes>
+      <class name="com.initBanking.testCase.Tc_LoginTest_001"/>
+    </classes>
+  </test>
+ </suite>

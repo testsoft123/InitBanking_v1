@@ -1,0 +1,8 @@
+com\initBanking\pageObject\LoginPage.class
+com\initBanking\utilities\Listeners.class
+com\initBanking\testCase\TC_LoginDDT_002.class
+com\initBanking\utilities\ReadConfig.class
+com\initBanking\testCase\BaseClass.class
+com\initBanking\testCase\Tc_LoginTest_001.class
+com\initBanking\utilities\XLUtils.class
+com\initBanking\utilities\Reporting.class

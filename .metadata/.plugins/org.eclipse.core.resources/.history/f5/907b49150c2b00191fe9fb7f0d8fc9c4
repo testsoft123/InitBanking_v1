@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="InitBankingV1">
+  <test name="BankingApp Test">
+  <parameter name="browserType" value="fireFox"/>
+    <classes>
+      <class name="com.initBanking.testCase.Tc_LoginTest_001"/>
+    </classes>
+  </test>
+ </suite>

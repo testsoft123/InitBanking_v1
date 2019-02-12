@@ -1,0 +1,48 @@
+package com.initBanking.utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class ReadConfig {
+	
+	Properties properties;
+	public ReadConfig(){
+		
+		File file = new File("./Configration/config.properties");
+		try {
+			
+			FileInputStream fileInputStream = new FileInputStream(file);
+			properties= new Properties();
+			properties.load(fileInputStream);
+		} catch (Exception e) {
+			System.out.println("Exception is"+e.getMessage());
+		}
+	}
+	public String getApplicationURL(){
+		String url = properties.getProperty("baseURL");
+		return url;
+	}
+	public String getUsername(){
+		String uname = properties.getProperty("baseURL");
+		return uname;
+	}
+	public String getPasswordL(){
+		String pass = properties.getProperty("baseURL");
+		return pass;
+	}
+	public String getChromePath(){
+		String chroPath = properties.getProperty("baseURL");
+		return chroPath;
+	}
+	public String getFireFoxPath(){
+		String firePath = properties.getProperty("baseURL");
+		return firePath;
+	}
+	public String getIEPath(){
+		String iePath = properties.getProperty("baseURL");
+		return iePath;
+	}
+	
+
+}

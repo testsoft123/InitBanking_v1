@@ -1,0 +1,25 @@
+package com.initBanking.testCase;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.initBanking.pageObject.LoginPage;
+
+public class Tc_LoginTest_002 extends BaseClass {
+	@Test
+	public void loginTest(){
+		String usrN ="gggg";
+		String pss="llll";
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.setUserName(usrN);
+		
+		loginPage.setPassword(pss);
+		
+		loginPage.clickSubmit();
+		if(driver.getTitle().equals(" Guru99 Bank Manager HomePage ")){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+}

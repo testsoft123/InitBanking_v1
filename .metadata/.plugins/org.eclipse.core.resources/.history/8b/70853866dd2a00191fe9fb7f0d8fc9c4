@@ -1,0 +1,19 @@
+package com.initBanking.pageObject;
+
+import org.junit.BeforeClass;
+import org.openqa.selenium.WebDriver;
+
+public class BaseClass {
+
+
+	public String  StringbaseURL= "http://demo.guru99.com/v4/";
+	public static WebDriver driver;
+	public String  username= "mngr177412";
+	public String  password= "veqUqUj";
+	
+	@BeforeClass
+	public void setUp(){
+		System.setProperty("", value)
+	}
+	
+}

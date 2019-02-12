@@ -1,0 +1,40 @@
+package com.initBanking.testCase;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+
+import com.initBanking.utilities.ReadConfig;
+
+
+
+public class BaseClass {
+
+	ReadConfig config = new ReadConfig();
+	public String  StringbaseURL= config.getApplicationURL();
+	public  String  username= config.getUsername();
+	public  String  password= config.getPasswordL();
+	public static WebDriver driver;
+	
+	public static Logger logger;
+	
+	@Parameters("browser")
+	@BeforeClass
+	public void setUp(String br){
+		System.setProperty("webdriver.chrome.driver", config.getChromePath());
+		driver = new ChromeDriver();
+		
+		logger = Logger.getLogger("eBanking");
+		PropertyConfigurator.configure("Log4j.properties");
+		
+	}
+	@AfterClass
+	public void tearDown(){
+		driver.close();
+	}
+	
+}

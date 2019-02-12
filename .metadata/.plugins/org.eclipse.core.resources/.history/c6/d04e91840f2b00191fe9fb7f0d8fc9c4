@@ -1,0 +1,31 @@
+package com.initBanking.utilities;
+
+import org.testng.ITestContext;
+import org.testng.TestListenerAdapter;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+public class Reporting  extends TestListenerAdapter{
+	public ExtentHtmlReporter htmlReporter;
+	public ExtentReports extentReports;
+	public ExtentTest extentTest;//update the status and lo
+	public void onStart(ITestContext context){
+		
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/myReport.html");
+		htmlReporter.config().setDocumentTitle("Automation Report");
+		htmlReporter.config().setReportName("Functional Report");
+		htmlReporter.config().setTheme(Theme.DARK);
+		
+		extentReports = new ExtentReports();
+		extentReports.attachReporter(htmlReporter);
+		extentReports.setSystemInfo("HostName", "LocalHost");
+		extentReports.setSystemInfo("OS", "Windowns7");
+		extentReports.setSystemInfo("Test Name", "Ambika");
+		extentReports.setSystemInfo("Browser", "Chrome");
+			
+		}
+
+}

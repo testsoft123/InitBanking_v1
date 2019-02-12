@@ -1,0 +1,16 @@
+package com.initBanking.utilities;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class XLUtils {
+	
+	public static FileInputStream fi;
+	public static FileOutputStream fo;
+	public static XSSFWorkbook wb;
+	public static XSSFSheet ws;
+	public static XSSFRow row;
+	public static XSSFCell cell;
+	
+
+}

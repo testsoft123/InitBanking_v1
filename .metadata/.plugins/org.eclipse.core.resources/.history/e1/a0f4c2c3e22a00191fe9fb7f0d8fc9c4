@@ -1,0 +1,27 @@
+package com.initBanking.testCase;
+
+import org.junit.BeforeClass;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+
+public class BaseClass {
+
+
+	public String  StringbaseURL= "http://demo.guru99.com/v4/";
+	public static WebDriver driver;
+	public static String  username= "mngr177412";
+	public static  String  password= "veqUqUj";
+	
+	@BeforeClass
+	public void setUp(){
+		System.setProperty("wedriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(StringbaseURL);
+	}
+	@AfterClass
+	public void tearDown(){
+		//driver.quit();
+	}
+	
+}
